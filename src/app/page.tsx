@@ -35,19 +35,23 @@ export default function Home() {
       {/* 3D Gallery Scene */}
       <GalleryScene />
 
-      {/* Statement — bottom, full width, bold, artistic */}
-      <div className="absolute bottom-14 left-0 right-0 z-20 px-6 overflow-hidden">
+      {/* Statement — bottom, 2 lines: name on top, formula below */}
+      <div className="absolute bottom-8 left-0 right-0 z-20 px-6 text-center">
         <p
-          className="text-[2.8vw] md:text-[2.2vw] lg:text-[1.8vw] font-bold uppercase tracking-[0.12em] text-center whitespace-nowrap"
-          style={{ fontFamily: "var(--font-serif)", color: "#2a2220" }}
+          className="text-[5vw] md:text-[4.5vw] lg:text-[4vw] font-bold uppercase italic tracking-[0.06em] text-[#1a1a1a]"
+          style={{ fontFamily: "var(--font-serif)", lineHeight: 2 }}
         >
-          <span className="text-[#C8A96E]">Market Insights</span>
-          <span className="mx-3 text-[#d4c0b0]">+</span>
-          <span className="text-[#7BA7BC]">Strategic Advisory</span>
-          <span className="mx-3 text-[#d4c0b0]">+</span>
-          <span className="text-[#8FAE7E]">Cultural Passion</span>
-          <span className="mx-3 text-[#d4c0b0]">=</span>
-          <span className="text-[#C4907A]">O Gia Han</span>
+          Ô Gia Hân
+        </p>
+        <p
+          className="text-[3.5vw] md:text-[3vw] lg:text-[2.5vw] font-semibold uppercase tracking-[0.06em] whitespace-nowrap"
+          style={{ fontFamily: "var(--font-serif)", lineHeight: 2 }}
+        >
+          <span className="text-[#1a1a1a]">Market Insights</span>
+          <span className="mx-1 md:mx-2 text-[#1a1a1a]/30">+</span>
+          <span className="text-[#1a1a1a]">Strategic Advisory</span>
+          <span className="mx-1 md:mx-2 text-[#1a1a1a]/30">+</span>
+          <span className="text-[#1a1a1a]">Cultural Passion</span>
         </p>
       </div>
 

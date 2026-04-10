@@ -7,10 +7,10 @@ import { useRouter } from "next/navigation";
 import * as THREE from "three";
 
 const panels = [
-  { id: "about", title: "About Me", subtitle: "The story behind", href: "/about", color: "#C4907A", pos: [-6, 0, 0] as [number, number, number], img: "/billboard-about.jpg", char: "/char-about.png", charAspect: 590 / 1138 },
-  { id: "career", title: "Career Journey", subtitle: "Where insight meets impact", href: "/career", color: "#C8A96E", pos: [-2, 0, 0] as [number, number, number], img: "/billboard-career.jpg", char: "/char-career.png", charAspect: 540 / 1127 },
-  { id: "projects", title: "Side Projects", subtitle: "Building beyond boundaries", href: "/projects", color: "#7BA7BC", pos: [2, 0, 0] as [number, number, number], img: "/billboard-projects.jpg", char: "/char-projects.png", charAspect: 491 / 1192 },
-  { id: "global", title: "Global Engagement", subtitle: "Connecting across cultures", href: "/global", color: "#8FAE7E", pos: [6, 0, 0] as [number, number, number], img: "/billboard-global.jpg", char: "/char-global.png", charAspect: 783 / 1061 },
+  { id: "about", title: "About Me", subtitle: "The story behind", href: "/about", color: "#FFC000", pos: [-6, 0, 0] as [number, number, number], img: "/billboard-about.jpg", char: "/char-about.png", charAspect: 590 / 1138 },
+  { id: "career", title: "Career Journey", subtitle: "Where insight meets impact", href: "/career", color: "#3E5DFA", pos: [-2, 0, 0] as [number, number, number], img: "/billboard-career.jpg", char: "/char-career.png", charAspect: 540 / 1127 },
+  { id: "projects", title: "Side Projects", subtitle: "Building beyond boundaries", href: "/projects", color: "#FF7447", pos: [2, 0, 0] as [number, number, number], img: "/billboard-projects.jpg", char: "/char-projects.png", charAspect: 491 / 1192 },
+  { id: "global", title: "Global Engagement", subtitle: "Connecting across cultures", href: "/global", color: "#37C722", pos: [6, 0, 0] as [number, number, number], img: "/billboard-global.jpg", char: "/char-global.png", charAspect: 783 / 1061 },
 ];
 
 function Pedestal({ hovered, color }: { hovered: boolean; color: string }) {
@@ -18,11 +18,11 @@ function Pedestal({ hovered, color }: { hovered: boolean; color: string }) {
     <group position={[0, -1.7, 0]}>
       <mesh position={[0, 0.25, 0]} castShadow receiveShadow>
         <boxGeometry args={[1.5, 0.5, 1.5]} />
-        <meshStandardMaterial color={hovered ? "#fefcf8" : "#f7e1e1"} roughness={0.35} metalness={0.05} />
+        <meshStandardMaterial color={hovered ? "#fefcf8" : "#FFA689"} roughness={0.35} metalness={0.05} />
       </mesh>
       <mesh position={[0, 0.53, 0]} castShadow>
         <boxGeometry args={[1.6, 0.06, 1.6]} />
-        <meshStandardMaterial color={hovered ? color : "#eecfcf"} roughness={0.4} metalness={0.1} />
+        <meshStandardMaterial color={hovered ? color : "#e8916e"} roughness={0.4} metalness={0.1} />
       </mesh>
     </group>
   );
@@ -40,14 +40,14 @@ function Billboard({ hovered, color, img }: { hovered: boolean; color: string; i
   );
 }
 
-function CharacterSprite({ img, aspect, hovered }: { img: string; aspect: number; hovered: boolean }) {
+function CharacterSprite({ img, aspect, hovered, scale = 1 }: { img: string; aspect: number; hovered: boolean; scale?: number }) {
   const texture = useLoader(THREE.TextureLoader, img);
   const charHeight = 2.0;
   const charWidth = charHeight * aspect;
 
   return (
     <Float speed={hovered ? 2 : 1} rotationIntensity={0.05} floatIntensity={hovered ? 0.3 : 0.1} floatingRange={[0, hovered ? 0.08 : 0.03]}>
-      <mesh position={[0, charHeight / 2, 0]} scale={hovered ? 1.04 : 1}>
+      <mesh position={[0, charHeight / 2, 0]} scale={(hovered ? 1.04 : 1) * scale}>
         <planeGeometry args={[charWidth, charHeight]} />
         <meshBasicMaterial map={texture} transparent alphaTest={0.1} side={THREE.DoubleSide} />
       </mesh>
@@ -68,15 +68,15 @@ function ExhibitionItem({ panel }: { panel: (typeof panels)[number] }) {
     >
       <Billboard hovered={hovered} color={panel.color} img={panel.img} />
       <Pedestal hovered={hovered} color={panel.color} />
-      <group position={[0, -1.14, 0.5]}>
-        <CharacterSprite img={panel.char} aspect={panel.charAspect} hovered={hovered} />
+      <group position={[0, panel.id === "projects" ? -0.94 : -1.14, 0.5]}>
+        <CharacterSprite img={panel.char} aspect={panel.charAspect} hovered={hovered} scale={panel.id === "projects" ? 1.2 : 1} />
       </group>
       <Html position={[0, -2.0, 0.8]} center className="pointer-events-none select-none">
         <div style={{ textAlign: "center", width: 220 }}>
           <h2 style={{
-            fontSize: 20, fontWeight: 600, letterSpacing: "0.04em",
+            fontSize: 20, fontWeight: 700, letterSpacing: "0.04em",
             fontFamily: "var(--font-serif)",
-            color: hovered ? panel.color : "#ecb2b2",
+            color: hovered ? panel.color : "#FFA689",
             transition: "color 0.3s", whiteSpace: "nowrap", margin: 0,
           }}>{panel.title}</h2>
           <div style={{
