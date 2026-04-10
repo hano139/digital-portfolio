@@ -36,27 +36,27 @@ export default function Home() {
       <GalleryScene />
 
       {/* Statement — bottom, 2 lines: name on top, formula below */}
-      <div className="absolute bottom-8 left-0 right-0 z-20 px-6 text-center">
+      <div className="absolute bottom-12 left-0 right-0 z-20 px-6 text-center">
         <p
           className="text-[5vw] md:text-[4.5vw] lg:text-[4vw] font-bold uppercase italic tracking-[0.06em] text-[#1a1a1a]"
-          style={{ fontFamily: "var(--font-serif)", lineHeight: 2 }}
+          style={{ fontFamily: "var(--font-serif)", lineHeight: 1.2 }}
         >
           Ô Gia Hân
         </p>
         <p
           className="text-[3.5vw] md:text-[3vw] lg:text-[2.5vw] font-semibold uppercase tracking-[0.06em] whitespace-nowrap"
-          style={{ fontFamily: "var(--font-serif)", lineHeight: 2 }}
+          style={{ fontFamily: "var(--font-serif)", lineHeight: 1.4 }}
         >
           <span className="text-[#1a1a1a]">Market Insights</span>
-          <span className="mx-1 md:mx-2 text-[#1a1a1a]/30">+</span>
+          <span style={{ margin: "0 0.4em" }} className="text-[#1a1a1a]/30">+</span>
           <span className="text-[#1a1a1a]">Strategic Advisory</span>
-          <span className="mx-1 md:mx-2 text-[#1a1a1a]/30">+</span>
+          <span style={{ margin: "0 0.4em" }} className="text-[#1a1a1a]/30">+</span>
           <span className="text-[#1a1a1a]">Cultural Passion</span>
         </p>
       </div>
 
       {/* Scroll hint */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 text-center">
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 text-center">
         <p
           className="text-[10px] tracking-[0.2em] uppercase text-[#6b5d4d]/60"
           style={{ fontFamily: "var(--font-sans)" }}
