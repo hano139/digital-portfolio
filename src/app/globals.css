@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FAF8F5;
+  --foreground: #1a1a1a;
+  --cream: #FAF8F5;
+  --beige: #E8DDD0;
+  --warm-brown: #8B7355;
+  --coral: #C4907A;
+  --gold: #C8A96E;
+  --sage: #8FAE7E;
+  --sky: #7BA7BC;
+  --charcoal: #1a1a1a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cream: var(--cream);
+  --color-beige: var(--beige);
+  --color-warm-brown: var(--warm-brown);
+  --color-coral: var(--coral);
+  --color-gold: var(--gold);
+  --color-sage: var(--sage);
+  --color-sky: var(--sky);
+  --color-charcoal: var(--charcoal);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: var(--gold);
+  color: white;
+}
+
+/* Hide Next.js dev tools indicator */
+[data-nextjs-dev-tools-button],
+nextjs-portal {
+  display: none !important;
+}
